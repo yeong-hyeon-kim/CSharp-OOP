@@ -1,4 +1,4 @@
-﻿using ClassLibrary.Abstract;
+﻿using ClassLibrary.Abstraction;
 using ClassLibrary.Encapsulation;
 using System;
 

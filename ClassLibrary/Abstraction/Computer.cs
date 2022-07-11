@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ClassLibrary.Abstract
+namespace ClassLibrary.Abstraction
 {
     /// <summary>
     /// 추상화,
