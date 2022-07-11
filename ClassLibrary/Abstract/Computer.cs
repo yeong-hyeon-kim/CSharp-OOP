@@ -1,8 +1,13 @@
 ﻿using System;
 
-namespace ClassLibrary.Inheritance
+namespace ClassLibrary.Abstract
 {
-    public class Computer
+    /// <summary>
+    /// 추상화,
+    /// 노트북, 스마트폰 모두 컴퓨터(Computer)라고 일반화(Generalization) 할 수 있는게 추상화이다.
+    /// 클래스간의 공통점을 찾아내서 공통의 조상을 만드는 작업
+    /// </summary>
+    public abstract class Computer
     {
         /// <summary>
         /// 모델명
