@@ -1,7 +1,8 @@
 ﻿namespace ClassLibrary.Encapsulation
 {
     /// <summary>
-    /// 값이 캡슐화 은닉프로퍼티 접근 수준에 따라 원치 않는 값 유출이나 수정을 방지할 수 있다.  
+    /// 프로퍼티 접근 수준에 따라 원치 않는 값 유출이나 수정을 방지할 수 있다. 
+    /// 값을 캡슐화(은닉) 할 수 있다.
     /// </summary>
     class GetSet
     {
