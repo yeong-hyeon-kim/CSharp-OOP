@@ -31,7 +31,7 @@ namespace ClassLibrary.Inheritance
         /// <summary>
         /// 카메라
         /// </summary>
-        public void Camera()
+        public virtual void Camera()
         {
             Console.WriteLine("사진 또는 동영상 촬영");
         }
@@ -39,12 +39,23 @@ namespace ClassLibrary.Inheritance
         /// <summary>
         /// 인터넷
         /// </summary>
-        public void Internet()
+        public virtual void Internet()
         {
             Console.WriteLine("웹 서핑");
         }
 
-        public virtual void Sending()
+        /// <summary>
+        /// 메시지
+        /// </summary>
+        public virtual void Message()
+        {
+            Console.WriteLine("문자 보내기");
+        }
+
+        /// <summary>
+        /// 결제
+        /// </summary>
+        public virtual void Payment()
         {
             Console.WriteLine("문자 보내기");
         }

@@ -1,4 +1,5 @@
-﻿using ClassLibrary.Encapsulation;
+﻿using ClassLibrary.Abstraction;
+using ClassLibrary.Encapsulation;
 using ClassLibrary.Inheritance;
 using ClassLibrary.Polymorphism;
 
@@ -6,6 +7,8 @@ namespace ConsoleApp
 {
     class Program
     {
+        private static SmartPhoneFactory Factory;
+
         static void Main(string[] args)
         {
             // 상속
@@ -24,22 +27,21 @@ namespace ConsoleApp
             // 그런 이유로 공통 클래스를 상속해서 공통적인 특징은 이미 가지고 있지만 자신만의 특성만 추가하거나
             // 공통적인 부분을 재정의하여(Override) 나만의 특성을 표현할 수 있음.
 
-            SmartPhone Phone1 = new Galaxy();
-            Galaxy GalaxyS22 = (Galaxy)Phone1;
+            SmartPhone GalaxyPhone = new Galaxy();
+            Galaxy GalaxyS22 = (Galaxy)GalaxyPhone;
 
-            GalaxyS22.Sending();
+            GalaxyS22.Message();
             GalaxyS22.Call();
-            GalaxyS22.SamsungPay();
 
             // 사용하는 이유는? : 공통적인 특성을 가지고 각자의 특성을 표현할 수 있다.
             // 공통적인 특성을 각 클래스에서 중복으로 정의하지 않고도 각자의 특성을 표현할 수 있다.
 
-            SmartPhone Phone2 = new SmartPhone();
-            iPhone iPhone13 = (iPhone)Phone2;
+            SmartPhone Phone = new iPhone();
+            iPhone iPhone13 = (iPhone)Phone;
 
             iPhone13.MacSafe();
 
-            // 캡슐화 테스트
+            // 캡슐화
             Switch s = new Switch();
 
             NoteBook noteBook = new NoteBook();
@@ -50,6 +52,20 @@ namespace ConsoleApp
 
             s.SwitchTurnOn(smartPhone);
             s.SwitchTurnOff(smartPhone);
+
+            // 추상화
+
+            // 인터페이스는 자신을 구현하는 클래스라면 자신이 정의한 메서드가 무조건 있다는 걸 보장한다.
+            // 클래스가 인터페이스를 상속받으면 구현하는 걸 강제하기 때문이다.
+
+            // 의존성 주입 왜 사용하나?
+            // 외부 클래스(A)에서 특정 클래스(B)의 메소드(M1)를 사용하고 있을때 클래스(B)를 클래스(C)로 변경하면 클래스(C)에 메소드(M1) 없다면 더이상 메소드(M1)를 사용할 수 없다.
+            // 메소드(M1)를 정의한 인터페이스를 상속하는 클래스라면 무조건 메소드(M1) 구현(재정의)하므로 클래스가 변경되어도 코드를 수정할 필요가 없다.
+
+            // 의존성 주입(Dependency Injection)
+            // 클래스 외부(ConsoleApp.Program)에서 객체(Galaxy)를 생성하여 클래스 내부(SmartPhoneFactory)에 주입.
+            Factory = new SmartPhoneFactory(new Galaxy());
+            Factory._phone.Camera();
         }
     }
 
